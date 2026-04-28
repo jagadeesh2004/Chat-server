@@ -8,7 +8,7 @@ SOCKET_LIST = []
 RECEIVE_BUFF = 4096
 
 def chat_server():
-    server_socket = s.socket(s.AF_INET, s.SOCK_STREAM)
+    server_socket = s.socket(s.AF_INET, s.SOCK_STREAM) #address family initilize internet and socket kind whether the connection should be flow stream or socket I/O
     server_socket.setsockopt(s.SOL_SOCKET, s.SO_REUSEADDR, 1)
     server_socket.bind((HOST, PORT))
     server_socket.listen(10)
@@ -19,7 +19,7 @@ def chat_server():
 
     try:
         while True:
-            ready_read, _, _ = sel.select(SOCKET_LIST, [], [])
+            ready_read, ready_write, error = sel.select(SOCKET_LIST, [], [])
 
             for sock in ready_read:
 
@@ -44,10 +44,9 @@ def chat_server():
                         message = data.decode()
 
                         # Print on server
-                        print("Message from {}: {}".format(sock.getpeername(), message))
+                        print("Message from {}: {}".format(sock.getpeername(), message)) #getpeername used to retrive the address of the remote endpoint
 
-                        broadcast(server_socket, sock,
-                                  "[{}] {}".format(sock.getpeername(), message))
+                        broadcast(server_socket, sock,"[{}] {}".format(sock.getpeername(), message))
 
                     except:
                         try:
