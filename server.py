@@ -33,7 +33,7 @@ def chat_server():
                     broadcast(server_socket, client_socket,
                               "{} entered the chat\n".format(addr))
 
-                # 🔹 Incoming message
+                # Incoming message
                 else:
                     try:
                         data = sock.recv(RECEIVE_BUFF)
