@@ -29,7 +29,7 @@ def chat_client():
 
     try:
         while True:
-            read_ready, _, _ = sel.select(SOCKET_LIST, [], [])
+            read_ready, write_ready, error = sel.select(SOCKET_LIST, [], [])
 
             for sock in read_ready:
                 # Incoming message from server
