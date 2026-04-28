@@ -1,27 +1,37 @@
-🧾 About
--------------------------------------------------------------
-A simple multi-client chat application built using Python socket programming.
+# 💬 Multi-Client Chat Server (Python)
+
+A simple **multi-client chat application** built using Python socket programming.
+
 This project demonstrates how multiple clients can connect to a single server over the same port and communicate in real time.
 
-The server uses I/O multiplexing (select) to efficiently manage multiple connections without using threads.
+The server uses **I/O multiplexing (`select`)** to efficiently handle multiple connections without using threads.
 
+---
 
-⬇️ Download
---------------------------------------------------------------
-Run the following command in your terminal to save the repository in your system
+## 🧾 About
 
- | $ git clone https://github.com/jagadeesh2004/Chat-server.git
+- Multi-client communication over a single port  
+- Real-time message broadcasting  
+- Efficient connection handling using `select()`  
+- Graceful client disconnect handling  
 
-put :
- | $ cd Chat-server
+---
+
+## ⬇️ Download
+
+Clone the repository:
+
+```bash
+git clone https://github.com/jagadeesh2004/Chat-server.git
+cd Chat-server
 
 ---------------------------------------------------------------
 
-▶️ Run
+## ▶️ Run
 
 Start the server
 
-$ python3 server.py
+python3 server.py
 
 Next start the client
 
@@ -52,15 +62,15 @@ You can open multiple terminals to simulate multiple clients
 
 Terminal 1 (Server)
 
-python3 server.py
+    python3 server.py
 
 Terminal 2 (Client 1)
 
-python3 client.py <server-ip> <port>
+    python3 client.py 127.0.0.1 4444
 
 Terminal 3 (Clinet 2)
 
-python3 client.py <server-ip> <port>
+    python3 client.py 127.0.0.1 4444
 
 
 -----------------------------------------------------------------
